@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { AuthService } from './services/auth.service';
+import { auth } from 'firebase';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +9,14 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'app';
+
+  constructor(private authService: AuthService) {
+
+  }
+  ngOnInit() {
+
+    this.authService.getStateAuth().subscribe(user => {
+      console.log(user)
+    })
+  }
 }

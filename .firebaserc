@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "test-project-75039": {
+      "hosting": {
+        "ingresoEgreso": [
+          "test-project-75039"
+        ]
+      }
+    }
+  }
+}

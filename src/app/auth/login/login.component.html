@@ -8,7 +8,7 @@
             <div class="form-group">
               <label class="label">Correo</label>
               <div class="input-group">
-                <input type="email" class="form-control" formControlName="email"  placeholder="Email">
+                <input type="email" class="form-control" formControlName="email" placeholder="Email">
                 <div class="input-group-append">
                   <span class="input-group-text">
                     <i *ngIf="getFormControl('email').valid" class="fa fa-check-circle"></i>
@@ -29,7 +29,11 @@
               </div>
             </div>
             <div class="form-group">
-              <button type="submit" class="btn btn-primary submit-btn btn-block">Entrar</button>
+              <button type="submit" [disabled]="loginForm.invalid" *ngIf="!isLoading"
+                class="btn btn-primary submit-btn btn-block">Entrar</button>
+
+              <button type="button" [disabled]="true" *ngIf="isLoading" class="btn btn-primary submit-btn btn-block"><i
+                  class="fa fa-spin fa-sync"></i></button>
             </div>
 
 

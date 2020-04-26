@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from './services/auth.service';
-import { auth } from 'firebase';
+
+import { Store } from '@ngrx/store';
+import { UserService } from './services/user.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -9,14 +12,15 @@ import { auth } from 'firebase';
 })
 export class AppComponent {
   title = 'app';
-
-  constructor(private authService: AuthService) {
+  subscription: Subscription;
+  constructor(
+    private userService: UserService,
+    private store: Store
+  ) {
 
   }
   ngOnInit() {
 
-    this.authService.getStateAuth().subscribe(user => {
-      console.log(user)
-    })
+    this.userService.userListener();
   }
 }

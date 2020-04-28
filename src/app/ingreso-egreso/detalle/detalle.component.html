@@ -1,33 +1,37 @@
 <div class="row">
-    <div class="col-12">
-        <div class="card">
-          <div class="card-body">
-            <h4 class="card-title">Detalle de ingreso egreso</h4>
+  <div class="col-12">
+    <div class="card">
+      <div class="card-body">
+        <h4 class="card-title">Detalle de ingreso egreso</h4>
 
-            <table class="table">
-              <thead>
-                <tr>
-                  <th>Descripción</th>
-                  <th>Monto</th>
-                  <th>Tipo</th>
-                  <th></th>
-                </tr>
-              </thead>
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Descripción</th>
+              <th>Monto</th>
+              <th>Tipo</th>
+              <th></th>
+            </tr>
+          </thead>
 
-              <tbody>
-                <tr>
-                  <td>Descripción</td>
-                  <td>Monto</td>
-                  <td>Tipo</td>
-                  <td>acciones</td>
-                </tr>
-              </tbody>
+          <tbody>
+            <tr *ngFor="let incomeExpense of incomeExpenses | incomeOrder">
+              <td>{{incomeExpense.description}}</td>
+              <td>{{incomeExpense.amount}}</td>
+              <td *ngIf="incomeExpense.type==='income'" [class.text-success]="incomeExpense.type==='income'">{{incomeExpense.type}}</td>
+              <td *ngIf="incomeExpense.type==='expense'" [class.text-danger]="incomeExpense.type==='expense'">{{incomeExpense.type}}</td>
+              <td>
+                <button type="button" class="btn btn-danger" (click)="onDelete(incomeExpense.uid)">
+                  <i class="fa fa-trash"></i>
+                </button>
+              </td>
+            </tr>
+          </tbody>
 
-            </table>
+        </table>
 
 
-          </div>
-        </div>
+      </div>
     </div>
+  </div>
 </div>
-  

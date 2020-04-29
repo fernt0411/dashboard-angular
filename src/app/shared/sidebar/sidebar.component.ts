@@ -66,4 +66,7 @@ export class SidebarComponent implements OnInit {
   }
 
 
+  onGo(page){
+    this.router.navigate([page])
+  }
 }

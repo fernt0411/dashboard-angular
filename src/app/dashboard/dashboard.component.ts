@@ -34,7 +34,7 @@ export class DashboardComponent implements OnInit {
       .subscribe(({ user }) => {
         // console.log(user)
         this.subscriptionIncomeExpense = this.incomeExpenseService.getIncomeExpenses(user.uid).subscribe(incomeExpense => {
-          console.log(incomeExpense)
+        //  console.log(incomeExpense)
           this.store.dispatch(incomeExpenseActions.setItems({ items: incomeExpense}))
         });
       });

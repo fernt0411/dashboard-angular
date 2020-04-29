@@ -6,6 +6,7 @@ import { IncomeExpense } from '../../models/income-expense.model';
 
 import { ChartType } from 'chart.js';
 import { MultiDataSet, Label } from 'ng2-charts';
+import { AppStateIncomeExpense } from '../income-expense.reducer';
 @Component({
   selector: 'app-estadistica',
   templateUrl: './estadistica.component.html',
@@ -27,7 +28,7 @@ export class EstadisticaComponent implements OnInit {
   public doughnutChartType: ChartType = 'doughnut';
 
   constructor(
-    private store: Store<AppState>
+    private store: Store<AppStateIncomeExpense>
   ) { }
 
   ngOnInit() {

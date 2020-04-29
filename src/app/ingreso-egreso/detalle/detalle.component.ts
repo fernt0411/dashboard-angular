@@ -5,6 +5,7 @@ import { Subscription } from 'rxjs';
 import { IncomeExpense } from '../../models/income-expense.model';
 import { IncomeExpenseService } from '../../services/income-expense.service';
 import Swal from 'sweetalert2';
+import { AppStateIncomeExpense } from '../income-expense.reducer';
 
 @Component({
   selector: 'app-detalle',
@@ -16,7 +17,7 @@ export class DetalleComponent implements OnInit {
 
   incomeExpenses: IncomeExpense[] = [];
   constructor(
-    private store: Store<AppState>,
+    private store: Store<AppStateIncomeExpense>,
     private incomeExpenseService: IncomeExpenseService
   ) { }
 
